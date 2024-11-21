@@ -11,14 +11,13 @@ import { Deputado } from '../module/deputados';
 export class BuscarDeputadoComponent {
 
   formBusca: FormGroup
-  deputado: Deputado | undefined
+  deputado: Deputado[] = []
 
   constructor( private fb: FormBuilder, private fs: DeputadoServiceService) {
     this.formBusca = this.fb.group({
       nome: ['', [ Validators.required, Validators.minLength(2)] ]
     })
 
-    this.deputado = undefined
   }
   buscar() {
     const nome = this.formBusca.value.nome

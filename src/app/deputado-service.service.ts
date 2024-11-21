@@ -8,7 +8,7 @@ import { Deputado } from './module/deputados';
 })
 export class DeputadoServiceService {
 
-  private API = "https://dadosabertos.camara.leg.br/api/v2/deputados?"
+  private API = "https://dadosabertos.camara.leg.br/api/v2/deputados"
   
   constructor(private http: HttpClient) {
     

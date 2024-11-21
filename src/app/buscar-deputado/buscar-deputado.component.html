@@ -1,10 +1,33 @@
-<h2>Buscar Deputado pelo Nome</h2>
-<form [formGroup]="formBusca">
-    <label for="nome"                
-           class="form-label">Nome:</label>
 
-    <input class="form-control" 
-           type="tex" name="nome" id="nome" formControlName="nome">
-           
-    
+<form [formGroup]="formBusca">
+       <h2>Buscar Deputado pelo Nome</h2>
+       <label for="nome" class="form-label">Nome:</label>
+
+        <input class="form-control" type="tex" name="nome" id="nome" formControlName="nome">
+
+       <input class="btn btn-info mt-3"
+       type="button" value="Buscar" [disabled]="formBusca.invalid"
+       (click)="buscar()">
+       
+       
+
 </form>
+
+<div *ngIf="deputado.length > 0" class="cards-container">
+
+       <div *ngFor="let dep of deputado" class="card">
+
+              
+              <div class="card-body">
+              <img [src] = "dep.urlFoto" class="card-img-top " alt="Foto">
+              <h5 class="card-title"> {{dep.nome}}</h5>
+              <ul class="card-text">
+                     <li>Partido: {{dep.siglaPartido}}</li>
+                     <li>Uf: {{dep.siglaUf}}</li>
+              </ul>
+              </div>
+
+       </div>
+
+
+</div> 
